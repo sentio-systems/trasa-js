@@ -1,0 +1,28 @@
+{
+  "name": "trasa",
+  "version": "0.2.0",
+  "type": "module",
+  "description": "Client API for Trasa multivehicle routing service.",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sentio-systems/trasa-js.git"
+  },
+  "keywords": [
+    "trasa",
+    "routing",
+    "geo",
+    "client"
+  ],
+  "author": "Sentio Ltd",
+  "license": "BSD-3-Clause",
+  "bugs": {
+    "url": "https://github.com/sentio-systems/trasa-js/issues"
+  },
+  "homepage": "https://github.com/sentio-systems/trasa-js#readme",
+  "dependencies": {
+    "node-fetch": "^2.6.1"
+  }
+}
