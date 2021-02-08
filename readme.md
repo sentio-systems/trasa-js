@@ -433,9 +433,7 @@ przykład odpowiedzi:
 }
 ```
 
-gdzie `geometry` jest polygonem który ma narysowany kształt mapy [zakodowany w formacie który pozwala od razu wyrenderowac na mapie](url=https://developers.google.com/maps/documentation/utilities/polylineutility).
-
-
+gdzie `geometry` jest polygonem który ma narysowany kształt mapy [zakodowany w formacie który pozwala od razu wyrenderowac na mapie](https://developers.google.com/maps/documentation/utilities/polylineutility)..
 
 # Dystans
 
