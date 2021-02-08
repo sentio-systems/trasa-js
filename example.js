@@ -88,6 +88,19 @@ const main = async () => {
     const leg = tripResponse.legs.filter(w => w.from_building === waypoint.building.id)[0]
     console.log(' - ', buildingString, leg.cost)
   }
+
+  console.log('distance query:')
+  const frombuilding = await geocoderService.bestMatch('goralska 5c')
+  const tobuilding = await geocoderService.bestMatch('zelwerowicza 59')
+  const request = {
+    from: frombuilding.coords,
+    to: tobuilding.coords
+  }
+  
+  const response = await routingService.distance(request)
+  console.log('from: ', request.from)
+  console.log('to', request.to)
+  console.log('cost:', response)
 }
 
 main()

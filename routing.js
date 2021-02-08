@@ -65,6 +65,26 @@ export class RoutingService {
     )
     return response.json()
   }
+
+  async distance (distanceRequest) {
+    const response = await fetch(
+      this.serviceClient.serverUrl, {
+        method: 'post',
+        headers: {
+          Authorization: 'BEARER ' + this.serviceClient.authenticationKey
+        },
+        body: JSON.stringify({
+          method: 'distance',
+          params: {
+            from: distanceRequest.from,
+            to: distanceRequest.to
+          }
+        })
+      }
+    )
+
+    return response.json()
+  }
 }
 
 export class TripRequest {

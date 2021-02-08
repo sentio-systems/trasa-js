@@ -83,6 +83,19 @@ const main = async () => {
     const leg = tripResponse.legs.filter(w => w.from_building === waypoint.building.id)[0]
     console.log(' - ', buildingString, leg.cost)
   }
+
+  console.log('distance query:')
+  const frombuilding = await geocoderService.bestMatch('goralska 5c')
+  const tobuilding = await geocoderService.bestMatch('zelwerowicza 59')
+  const request = {
+    from: frombuilding.coords,
+    to: tobuilding.coords
+  }
+  
+  const response = await routingService.distance(request)
+  console.log('from: ', request.from)
+  console.log('to', request.to)
+  console.log('cost:', response)
 }
 
 main()
@@ -421,3 +434,37 @@ przykład odpowiedzi:
 ```
 
 gdzie `geometry` jest polygonem który ma narysowany kształt mapy [zakodowany w formacie który pozwala od razu wyrenderowac na mapie](url=https://developers.google.com/maps/documentation/utilities/polylineutility).
+
+
+
+# Dystans
+
+Zapytanie to zwraca odleglosc najkrótszej drogi pomiędzy dwoma lokalizacjami GPS. Przykład zapytania:
+
+```json
+curl --location --request POST 'http://coreapi.trasa.cloud/' \
+--header 'Authorization: Bearer [TOKEN]' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+        "method": "distance",
+        "params": {
+                "from": {
+                        "latitude": 54.374456,
+                        "longitude": 18.564955
+                },
+        "to": {
+                        "latitude": 54.402008,
+                        "longitude": 18.644945
+                }
+        }
+}'
+```
+
+przykładowa odpowiedź serwera:
+
+```json
+{
+    "meters": "7742",
+    "seconds": "799"
+}
+```
