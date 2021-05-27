@@ -64,9 +64,10 @@ export class GeocoderService {
   async bestMatch (pattern) {
     const result = await this.lookup(pattern)
     if (result !== null &&
-        result.matches !== null &&
-        result.matches.length !== 0) {
-      return result.matches[0]
+        result.result !== null &&
+        result.result.matches !== null &&
+        result.result.matches.length !== 0) {
+      return result.result.matches[0]
     } else {
       throw new Error('No matches found for this pattern')
     }

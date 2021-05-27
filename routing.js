@@ -49,7 +49,7 @@ export class RoutingService {
           Authorization: 'BEARER ' + this.serviceClient.authenticationKey
         },
         body: JSON.stringify({
-          method: 'trip.sync',
+          method: 'trip',
           params: {
             location: this.currentLocation,
             starting_point: { building: tripRequest.startingPoint },
@@ -63,6 +63,7 @@ export class RoutingService {
         })
       }
     )
+
     return response.json()
   }
 
@@ -82,7 +83,6 @@ export class RoutingService {
         })
       }
     )
-
     return response.json()
   }
 }

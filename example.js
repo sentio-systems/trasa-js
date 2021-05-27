@@ -45,12 +45,7 @@ const printBuildings = (buildings) => {
 
 const main = async () => {
   const authKey =
-    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.' +
-    'eyJyb2xlIjoiZHJpdmVyIiwidXBuIjoiZGVsa' +
-    'XZlcnkteHByZXNzIiwibmJmIjoxNjEyNDcwOD' +
-    'AyLCJleHAiOjE2MTUwNjI4MDIsImlhdCI6MTY' +
-    'xMjQ3MDgwMn0.ajsOQSe7L35TcTTjE4kjGX3A' +
-    'TiNg7OkjgsJFye0uUlE'
+    'eyJhbGciOiJIUzI1NiIsImtpZCI6IlhwcmVzc0RlbGl2ZXJ5IiwidHlwIjoiSldUIn0.eyJuYW1lIjoiWHByZXNzRGVsaXZlcnkiLCJpc3MiOiJjb3JlYXBpQHRyYXNhLmVuZ2luZWVyaW5nIiwiYXVkIjoiWHByZXNzRGVsaXZlcnkiLCJ1c2VyX2lkIjoiWHByZXNzRGVsaXZlcnkiLCJzdWIiOiJzdXBwb3J0QHhwcmVzcy5kZWxpdmVyeSIsImlhdCI6MTYyMjEyMDcxMCwiZXhwIjoxNjI0NzkxOTA3LCJwaG9uZV9udW1iZXIiOiIrNDg3ODQ3NTk5MTkifQ.NnfRf5UmroiAOJpcERhXqg37GRNDQ4D1jWqgd2ryZ7U';
 
   const serviceClient = new ServiceClient(authKey)
   const currentLocation = new Coordinates(18.64498, 54.402) // somewhere in Gdańsk, PL
@@ -75,7 +70,7 @@ const main = async () => {
   printBuildings(waypoints)
 
   const tripRequest = new TripRequest(startingPoint, finalPoint, waypoints)
-  const tripResponse = await routingService.optimizeTrip(tripRequest)
+  const tripResponse = (await routingService.optimizeTrip(tripRequest)).result;
 
   console.log()
   console.log('optimal order:')
